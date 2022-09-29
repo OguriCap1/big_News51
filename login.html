@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页</title>
+    <!-- 导入layui的样式 -->
+    <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
+    <!-- 导入自己的css样式-->
+    <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+
+<body>
+    <!-- 头部的logo区域 -->
+    <div class="layui-main">
+        <img src="./assets/images/logo.png" alt="">
+    </div>
+
+    <!-- 登录注册区域 -->
+    <div class="login-reg-box">
+        <!-- 登录、注册框的标题区域 -->
+        <h4>
+            <img src="./assets/images/login_title.png" alt="">
+        </h4>
+        <!-- 登录框的表单区域 -->
+        <div class="login-wrap">
+            <form class="layui-form" id="formLogin">
+                <!-- 用户名 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <!-- 需要使用 lay-verify 进行添加校验规则，如果有多个校验规则的话需要通过 | 隔开 -->
+                    <!-- 原生input输入框本身就有required属性，就表示此输入框是一个必填项 -->
+                     <input type="text" name="username" required
+                        lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input" />
+                </div>
+                <!-- 密码 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="password" required lay-verify="required|pwd" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <!-- 登录按钮 -->
+                <div class="layui-form-item">
+                    <!-- 表单提交按钮和普通按钮的区别就是lay-submit属性 -->
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>登录</button>
+                </div>
+                <div class="layui-form-item links">
+                    <a href="javascript:;" id="go2Reg">去注册账号</a>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- 注册框的表单区域 -->
+        <div class="reg-wrap">
+            <form class="layui-form" id="formReg">
+                <!-- 用户名 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-username"></i>
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <!-- 密码 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" id="password"  name="password" required lay-verify="required|pwd" placeholder="请输入密码"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <!-- 再次输入密码 -->
+                <div class="layui-form-item">
+                    <i class="layui-icon layui-icon-password"></i>
+                    <input type="password" name="repassword" required lay-verify="required|pwd|repwd" placeholder="请再次确认密码"
+                        autocomplete="off" class="layui-input" />
+                </div>
+                <!-- 登录按钮 -->
+                <div class="layui-form-item">
+                    <!-- 表单提交按钮和普通按钮的区别就是lay-submit属性 -->
+                    <button class="layui-btn layui-btn-fluid layui-btn-normal" lay-submit>注册</button>
+                </div>
+                <div class="layui-form-item links">
+                    <a href="javascript:;" id="go2Login">去登录</a>
+                </div>
+            </form>
+        </div>
+
+
+
+        <!-- 导入Layui的js文件 -->
+        <script src="./assets/lib/layui/layui.all.js"></script>
+        <!-- 导入jQuery -->
+        <script src="./assets/lib/jquery.js"></script>
+        <!-- 导入自己封装的baseApi.js -->
+        <script src="./assets/js/baseApi.js"></script>
+        <!-- 导入自己的js -->
+        <script src="./assets/js/login.js"></script>
+</body>
+
+</html>
