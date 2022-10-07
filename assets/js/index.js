@@ -29,7 +29,7 @@ function getUserInfo() {
         success: function (res) {
             console.log(res);
             if (res.code !== 0) {
-                return layer.msg('res.message')
+                return layer.msg(res.message)
             }
             // 调用renderAvatar渲染用户头像
             renderAvatar(res)
@@ -40,11 +40,11 @@ function getUserInfo() {
 
 //渲染用户头像部分
 const renderAvatar = (res) => {
-    if (res.user_pic) {
+    if (res.data.user_pic) {
         //隐藏文本头像
         $('.text-avatar').hide()
         //渲染图片头像
-        $('.userinfo img').css('src', res.user_pic)
+        $('.userinfo img').attr('src', res.data.user_pic).show()
     } else {
         //隐藏图片头像
         $('.layui-nav-img').hide()
