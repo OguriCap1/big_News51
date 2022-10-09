@@ -6,12 +6,12 @@ $(function () {
             , '密码必须6到12位，且不能出现空格'
         ],
         samePwd: function (value) {
-            if (value === $('[name=oldPwd]').val()) {
+            if (value === $('[name=old_pwd]').val()) {
                 return '新旧密码不能相同'
             }
         },
         rePwd: function (value) {
-            if (value !== $('[name=newPwd]').val()) {
+            if (value !== $('[name=new_pwd]').val()) {
                 return '两次密码不一致'
             }
         }
@@ -22,9 +22,11 @@ $(function () {
         $.ajax({
             method: 'PATCH',
             url: '/my/updatepwd',
-            data: $(this).serialize(),
+            // data: $(this).serialize(),
+            data:form.val('pwdForm'),
             success: function (res) {
                 if (res.code !== 0) {
+                    console.log(res.code);
                     return layui.layer.msg(res.message)
                 }
                 layui.layer.msg(res.message)
